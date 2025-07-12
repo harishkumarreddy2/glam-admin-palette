@@ -41,12 +41,9 @@ export const AdminHeader = ({ isHelpMode = false, onHelpToggle }: AdminHeaderPro
   
   return (
     <TooltipProvider>
-    <header className="flex h-16 items-center justify-between px-6 border-b border-white/30 backdrop-blur-xl bg-gradient-to-r from-white/95 via-white/90 to-white/95 shadow-lg shadow-primary/5 relative overflow-hidden">
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5"></div>
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-white/20 to-transparent"></div>
-      <div className="absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-bl from-primary/10 to-transparent rounded-full blur-xl"></div>
-      <div className="absolute -top-16 -left-16 w-32 h-32 bg-gradient-to-br from-accent/10 to-transparent rounded-full blur-xl"></div>
+    <header className="flex h-16 items-center justify-between px-6 border-b border-white/20 backdrop-blur-xl bg-white/90 shadow-lg relative">
+      {/* Subtle background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/3 to-accent/3 pointer-events-none"></div>
       {/* Logo Section */}
       <div className="flex items-center space-x-4 relative z-10">
         <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-primary via-primary to-accent shadow-lg"></div>
@@ -59,11 +56,11 @@ export const AdminHeader = ({ isHelpMode = false, onHelpToggle }: AdminHeaderPro
       {/* Search Section */}
       <div className="flex-1 max-w-md mx-8 relative z-10">
         <div className="relative">
-          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground z-10" />
+          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           <input
             type="text"
             placeholder="Search..."
-            className="w-full rounded-lg border border-white/30 bg-white/70 backdrop-blur-sm py-2 pl-10 pr-4 text-sm transition-all duration-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-white/90 shadow-sm hover:shadow-md"
+            className="w-full rounded-lg border border-white/20 bg-white/70 py-2 pl-10 pr-4 text-sm backdrop-blur-sm transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
           />
           {isHelpMode && (
             <HelpDot explanation="Search functionality - Type to search across users, content, settings, and other admin panel features." />
@@ -76,16 +73,16 @@ export const AdminHeader = ({ isHelpMode = false, onHelpToggle }: AdminHeaderPro
         <Toggle
           pressed={isHelpMode}
           onPressedChange={onHelpToggle}
-          className="relative rounded-lg p-2 text-gray-600 transition-all duration-300 hover:bg-white/60 hover:text-primary hover:shadow-md data-[state=on]:bg-primary/20 data-[state=on]:text-primary data-[state=on]:shadow-lg backdrop-blur-sm"
+          className="relative rounded-lg p-2 text-gray-600 transition-colors hover:bg-white/50 hover:text-primary data-[state=on]:bg-primary/20 data-[state=on]:text-primary"
           aria-label="Toggle help mode"
         >
           <HelpCircle className="h-5 w-5" />
         </Toggle>
         
         <div className="relative">
-          <button className="rounded-lg p-2 text-gray-600 transition-all duration-300 hover:bg-white/60 hover:text-primary hover:shadow-md backdrop-blur-sm">
+          <button className="rounded-lg p-2 text-gray-600 transition-colors hover:bg-white/50 hover:text-primary">
             <Bell className="h-5 w-5" />
-            <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-gradient-to-r from-red-500 to-red-600 shadow-lg"></span>
+            <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-gradient-to-r from-red-500 to-red-600"></span>
           </button>
           {isHelpMode && (
             <HelpDot explanation="Notifications - View recent alerts, system updates, user activities, and important admin notifications." />

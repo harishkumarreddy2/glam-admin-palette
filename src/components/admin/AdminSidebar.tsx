@@ -187,12 +187,9 @@ export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect, isHelpMod
       </div>
 
       {/* Mobile/Tablet Bottom Bar */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 flex h-20 items-center justify-center backdrop-blur-xl bg-gradient-to-t from-white/95 via-white/90 to-white/95 border-t border-white/30 shadow-2xl shadow-primary/10 relative overflow-hidden">
-        {/* Decorative background elements */}
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/5 via-transparent to-accent/5"></div>
-        <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-white/20 to-transparent"></div>
-        <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-gradient-to-tl from-primary/10 to-transparent rounded-full blur-xl"></div>
-        <div className="absolute -bottom-16 -left-16 w-32 h-32 bg-gradient-to-tr from-accent/10 to-transparent rounded-full blur-xl"></div>
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 flex h-20 items-center justify-center backdrop-blur-xl bg-white/90 border-t border-white/20 shadow-lg relative">
+        {/* Subtle background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/3 to-accent/3 pointer-events-none"></div>
         
         <nav className="flex items-center justify-around w-full max-w-md px-4 relative z-10">
           {/* Show only main nav items on mobile for space */}
