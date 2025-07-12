@@ -105,16 +105,7 @@ export const AdminDashboard = () => {
       
       {/* Body Section - Fixed Sidebar + Scrollable Work Area */}
       <div className="flex flex-1 pt-16">
-        {/* Fixed Left Sidebar (Desktop only) */}
-        <div className="hidden lg:block fixed left-0 top-16 bottom-0 z-40 relative">
-          <AdminSidebar 
-            activeItem={activeSection} 
-            onItemSelect={setActiveSection}
-            isHelpMode={isHelpMode}
-          />
-        </div>
-        
-        {/* Mobile/Tablet Bottom Navigation */}
+        {/* Navigation - Responsive */}
         <AdminSidebar 
           activeItem={activeSection} 
           onItemSelect={setActiveSection}
@@ -122,8 +113,8 @@ export const AdminDashboard = () => {
         />
         
         {/* Scrollable Right Work Area */}
-        <div className="flex-1 lg:ml-0 lg:h-screen h-[calc(100vh-144px)] overflow-y-auto custom-scrollbar">
-          <main className="p-6 space-y-6 min-h-full lg:pb-0 pb-4">
+        <div className="flex-1 lg:ml-16 lg:h-screen h-[calc(100vh-144px)] overflow-y-auto custom-scrollbar">
+          <main className="p-6 space-y-6 min-h-full">
           {/* Welcome Section */}
           <div className="animate-fade-in-up relative">
             <h1 className="text-3xl font-bold text-foreground mb-2">

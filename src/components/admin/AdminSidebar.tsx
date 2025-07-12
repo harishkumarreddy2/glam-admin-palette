@@ -90,11 +90,12 @@ export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect, isHelpMod
   };
 
   return (
-    <TooltipProvider>
+    <>
       {/* Desktop Sidebar */}
-      <div className="hidden lg:flex w-16 h-screen glass-nav flex-col">
+      <div className="hidden lg:block fixed left-0 top-16 bottom-0 z-40 w-16 glass-nav">
+        <TooltipProvider>
         {/* Main Navigation */}
-        <nav className="flex-1 p-1 space-y-2 pt-4">
+        <nav className="flex-1 p-1 space-y-2 pt-4 flex flex-col">
           {mainNavItems.map((item) => {
             const Icon = item.icon;
             const isActive = activeItem === item.id;
@@ -184,14 +185,17 @@ export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect, isHelpMod
             );
           })}
         </div>
+        </TooltipProvider>
       </div>
 
       {/* Mobile/Tablet Bottom Bar */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 flex h-20 items-center justify-center backdrop-blur-xl bg-white/90 border-t border-white/20 shadow-lg relative">
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 h-20 backdrop-blur-xl bg-white/90 border-t border-white/20 shadow-lg">
+        <TooltipProvider>
         {/* Subtle background gradient */}
         <div className="absolute inset-0 bg-gradient-to-t from-primary/3 to-accent/3 pointer-events-none"></div>
         
-        <nav className="flex items-center justify-around w-full max-w-md px-4 relative z-10">
+        <div className="flex items-center justify-center h-full">
+        <nav className="flex items-center justify-around w-full max-w-md px-4">
           {/* Show only main nav items on mobile for space */}
           {mainNavItems.slice(0, 5).map((item) => {
             const Icon = item.icon;
@@ -231,7 +235,9 @@ export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect, isHelpMod
             );
           })}
         </nav>
+        </div>
+        </TooltipProvider>
       </div>
-    </TooltipProvider>
+    </>
   );
 };
