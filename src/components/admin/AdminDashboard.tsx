@@ -59,12 +59,17 @@ const recentActivities = [
 
 export const AdminDashboard = () => {
   const [activeSection, setActiveSection] = useState("dashboard");
+  const [isHelpMode, setIsHelpMode] = useState(false);
+
+  const HelpDot = () => (
+    <div className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 border-2 border-white shadow-lg animate-pulse z-10" />
+  );
 
   return (
     <div className="h-screen bg-background flex flex-col overflow-hidden">
       {/* Fixed Top Bar */}
       <div className="fixed top-0 left-0 right-0 z-50">
-        <AdminHeader />
+        <AdminHeader isHelpMode={isHelpMode} onHelpToggle={setIsHelpMode} />
       </div>
       
       {/* Body Section - Fixed Sidebar + Scrollable Work Area */}
@@ -95,9 +100,11 @@ export const AdminDashboard = () => {
             {statsData.map((stat, index) => (
               <div 
                 key={stat.title}
+                className="relative"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <StatsCard {...stat} />
+                {isHelpMode && <HelpDot />}
               </div>
             ))}
           </div>
@@ -109,9 +116,12 @@ export const AdminDashboard = () => {
               <GlossyCard className="h-96">
                 <div className="flex items-center justify-between mb-6">
                   <h3 className="text-lg font-semibold text-foreground">Analytics Overview</h3>
-                  <GradientButton size="sm">
-                    View Details
-                  </GradientButton>
+                  <div className="relative">
+                    <GradientButton size="sm">
+                      View Details
+                    </GradientButton>
+                    {isHelpMode && <HelpDot />}
+                  </div>
                 </div>
                 
                 <div className="h-64 flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg">
@@ -166,20 +176,29 @@ export const AdminDashboard = () => {
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <GradientButton className="flex items-center justify-center space-x-2">
-                <Users className="h-4 w-4" />
-                <span>Add User</span>
-              </GradientButton>
+              <div className="relative">
+                <GradientButton className="flex items-center justify-center space-x-2">
+                  <Users className="h-4 w-4" />
+                  <span>Add User</span>
+                </GradientButton>
+                {isHelpMode && <HelpDot />}
+              </div>
               
-              <GradientButton variant="secondary" className="flex items-center justify-center space-x-2">
-                <MessageSquare className="h-4 w-4" />
-                <span>Send Message</span>
-              </GradientButton>
+              <div className="relative">
+                <GradientButton variant="secondary" className="flex items-center justify-center space-x-2">
+                  <MessageSquare className="h-4 w-4" />
+                  <span>Send Message</span>
+                </GradientButton>
+                {isHelpMode && <HelpDot />}
+              </div>
               
-              <GradientButton className="flex items-center justify-center space-x-2">
-                <Activity className="h-4 w-4" />
-                <span>Generate Report</span>
-              </GradientButton>
+              <div className="relative">
+                <GradientButton className="flex items-center justify-center space-x-2">
+                  <Activity className="h-4 w-4" />
+                  <span>Generate Report</span>
+                </GradientButton>
+                {isHelpMode && <HelpDot />}
+              </div>
             </div>
           </GlossyCard>
           </main>

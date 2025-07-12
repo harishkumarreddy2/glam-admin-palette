@@ -1,7 +1,13 @@
-import { Bell, Search, User } from "lucide-react";
+import { Bell, Search, User, HelpCircle } from "lucide-react";
 import { GradientButton } from "./GradientButton";
+import { Toggle } from "@/components/ui/toggle";
 
-export const AdminHeader = () => {
+interface AdminHeaderProps {
+  isHelpMode?: boolean;
+  onHelpToggle?: (isPressed: boolean) => void;
+}
+
+export const AdminHeader = ({ isHelpMode = false, onHelpToggle }: AdminHeaderProps) => {
   return (
     <header className="glass-nav flex h-16 items-center justify-between px-6 border-b border-white/10">
       {/* Logo Section */}
@@ -22,8 +28,17 @@ export const AdminHeader = () => {
         </div>
       </div>
 
-      {/* Notification Section */}
+      {/* Actions Section */}
       <div className="flex items-center space-x-4">
+        <Toggle
+          pressed={isHelpMode}
+          onPressedChange={onHelpToggle}
+          className="relative rounded-lg p-2 text-gray-600 transition-colors hover:bg-white/50 hover:text-primary data-[state=on]:bg-primary/20 data-[state=on]:text-primary"
+          aria-label="Toggle help mode"
+        >
+          <HelpCircle className="h-5 w-5" />
+        </Toggle>
+        
         <button className="relative rounded-lg p-2 text-gray-600 transition-colors hover:bg-white/50 hover:text-primary">
           <Bell className="h-5 w-5" />
           <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-gradient-to-r from-red-500 to-red-600"></span>
