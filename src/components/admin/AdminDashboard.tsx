@@ -14,6 +14,12 @@ import { AdminHeader } from "./AdminHeader";
 import { StatsCard } from "./StatsCard";
 import { GlossyCard } from "./GlossyCard";
 import { GradientButton } from "./GradientButton";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const statsData = [
   {
@@ -63,11 +69,19 @@ export const AdminDashboard = () => {
 
   console.log("Help mode state:", isHelpMode);
 
-  const HelpDot = () => (
-    <div className="absolute -top-2 -right-2 h-4 w-4 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 border-2 border-white shadow-lg animate-pulse z-50" />
+  const HelpDot = ({ explanation }: { explanation: string }) => (
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <div className="absolute -top-2 -right-2 h-4 w-4 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 border-2 border-white shadow-lg animate-pulse z-50 cursor-help" />
+      </TooltipTrigger>
+      <TooltipContent side="bottom" className="max-w-xs">
+        <p>{explanation}</p>
+      </TooltipContent>
+    </Tooltip>
   );
 
   return (
+    <TooltipProvider>
     <div className="h-screen bg-background flex flex-col overflow-hidden">
       {/* Fixed Top Bar */}
       <div className="fixed top-0 left-0 right-0 z-50">
@@ -83,7 +97,7 @@ export const AdminDashboard = () => {
             onItemSelect={setActiveSection} 
           />
           {isHelpMode && (
-            <div className="absolute top-4 right-2 h-4 w-4 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 border-2 border-white shadow-lg animate-pulse z-50" />
+            <HelpDot explanation="Navigation sidebar - Access different sections of the admin panel including dashboard, users, analytics, and settings." />
           )}
         </div>
         
@@ -109,7 +123,7 @@ export const AdminDashboard = () => {
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <StatsCard {...stat} />
-                {isHelpMode && <HelpDot />}
+                {isHelpMode && <HelpDot explanation={`${stat.title} statistics - View current ${stat.title.toLowerCase()} metrics, trends, and performance indicators.`} />}
               </div>
             ))}
           </div>
@@ -125,7 +139,7 @@ export const AdminDashboard = () => {
                     <GradientButton size="sm">
                       View Details
                     </GradientButton>
-                    {isHelpMode && <HelpDot />}
+                    {isHelpMode && <HelpDot explanation="View detailed analytics - Click to access comprehensive charts, reports, and data visualizations for deeper insights." />}
                   </div>
                 </div>
                 
@@ -186,7 +200,7 @@ export const AdminDashboard = () => {
                   <Users className="h-4 w-4" />
                   <span>Add User</span>
                 </GradientButton>
-                {isHelpMode && <HelpDot />}
+                {isHelpMode && <HelpDot explanation="Add new user - Create a new user account with appropriate permissions and access levels." />}
               </div>
               
               <div className="relative">
@@ -194,7 +208,7 @@ export const AdminDashboard = () => {
                   <MessageSquare className="h-4 w-4" />
                   <span>Send Message</span>
                 </GradientButton>
-                {isHelpMode && <HelpDot />}
+                {isHelpMode && <HelpDot explanation="Send message - Communicate with users through notifications, emails, or in-app messages." />}
               </div>
               
               <div className="relative">
@@ -202,7 +216,7 @@ export const AdminDashboard = () => {
                   <Activity className="h-4 w-4" />
                   <span>Generate Report</span>
                 </GradientButton>
-                {isHelpMode && <HelpDot />}
+                {isHelpMode && <HelpDot explanation="Generate report - Create comprehensive reports with current data, analytics, and performance metrics." />}
               </div>
             </div>
           </GlossyCard>
@@ -210,5 +224,6 @@ export const AdminDashboard = () => {
         </div>
       </div>
     </div>
+    </TooltipProvider>
   );
 };
