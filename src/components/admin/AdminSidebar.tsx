@@ -72,11 +72,13 @@ export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect }: AdminSi
                 "group flex w-full items-center rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200",
                 isActive
                   ? "bg-primary/10 text-primary"
-                  : "text-gray-600 hover:bg-white/50 hover:text-primary"
+                  : "text-gray-600 hover:bg-white/50 hover:text-primary",
+                isCollapsed ? "justify-center" : "justify-start"
               )}
             >
               <Icon className={cn(
-                "h-5 w-5 transition-colors",
+                "transition-all duration-200",
+                isCollapsed ? "h-6 w-6" : "h-5 w-5",
                 isActive ? "text-primary" : "text-gray-500 group-hover:text-primary"
               )} />
               {!isCollapsed && (
@@ -86,7 +88,7 @@ export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect }: AdminSi
               )}
               
               {/* Active indicator */}
-              {isActive && (
+              {isActive && !isCollapsed && (
                 <div className="ml-auto h-2 w-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-600"></div>
               )}
             </button>
