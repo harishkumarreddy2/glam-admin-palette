@@ -94,7 +94,7 @@ export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect, isHelpMod
     <div className="w-16 h-screen glass-nav flex flex-col">
 
       {/* Main Navigation */}
-      <nav className="flex-1 p-[0.2rem] space-y-2 pt-4">
+      <nav className="flex-1 p-2 space-y-1 pt-4">
         {mainNavItems.map((item) => {
           const Icon = item.icon;
           const isActive = activeItem === item.id;
@@ -104,7 +104,7 @@ export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect, isHelpMod
               key={item.id}
               onClick={() => handleItemClick(item.id)}
               className={cn(
-                "group relative flex w-full flex-col items-center justify-center rounded-lg px-1 py-3 transition-all duration-300 hover:scale-105",
+                "group relative flex w-full flex-col items-center justify-center rounded-lg px-2 py-4 m-1 transition-all duration-300 hover:scale-105",
                 isActive
                   ? "bg-gradient-to-br from-primary/30 via-primary/20 to-accent/30 text-primary shadow-xl border border-primary/40 shadow-primary/20 scale-105"
                   : "text-gray-600 hover:bg-gradient-to-br hover:from-white/60 hover:to-white/40 hover:text-primary hover:shadow-sm"
@@ -120,13 +120,13 @@ export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect, isHelpMod
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg blur-sm -z-10" />
               )}
               
-              <div className="relative flex flex-col items-center justify-center space-y-1 z-10 w-full h-full">
+              <div className="relative flex flex-col items-center justify-center space-y-2 z-10 w-full h-full">
                 <Icon className={cn(
-                  "h-5 w-5 transition-all duration-300",
+                  "h-6 w-6 transition-all duration-300",
                   isActive ? "text-primary drop-shadow-md scale-110" : "text-gray-500 group-hover:text-primary"
                 )} />
                 <span className={cn(
-                  "text-[8px] font-semibold uppercase tracking-wider leading-none transition-all duration-300",
+                  "text-[9px] font-semibold uppercase tracking-wider leading-none transition-all duration-300 text-center px-1",
                   isActive ? "text-primary/90 font-bold" : "text-gray-500 group-hover:text-primary/90"
                 )}>
                   {item.label}
@@ -140,7 +140,7 @@ export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect, isHelpMod
       </nav>
 
       {/* Bottom Navigation - User & Help */}
-      <div className="border-t border-white/10 p-[0.2rem] space-y-2">
+      <div className="border-t border-white/10 p-2 space-y-1">
         {bottomNavItems.map((item) => {
           const Icon = item.icon;
           const isActive = activeItem === item.id;
@@ -150,7 +150,7 @@ export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect, isHelpMod
               key={item.id}
               onClick={() => handleItemClick(item.id)}
               className={cn(
-                "group relative flex w-full flex-col items-center justify-center rounded-lg px-1 py-3 transition-all duration-300 hover:scale-105",
+                "group relative flex w-full flex-col items-center justify-center rounded-lg px-2 py-4 m-1 transition-all duration-300 hover:scale-105",
                 isActive
                   ? "bg-gradient-to-br from-primary/30 via-primary/20 to-accent/30 text-primary shadow-xl border border-primary/40 shadow-primary/20 scale-105"
                   : "text-gray-600 hover:bg-gradient-to-br hover:from-white/60 hover:to-white/40 hover:text-primary hover:shadow-sm"
@@ -166,13 +166,13 @@ export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect, isHelpMod
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg blur-sm -z-10" />
               )}
               
-              <div className="relative flex flex-col items-center justify-center space-y-1 z-10 w-full h-full">
+              <div className="relative flex flex-col items-center justify-center space-y-2 z-10 w-full h-full">
                 <Icon className={cn(
-                  "h-5 w-5 transition-all duration-300",
+                  "h-6 w-6 transition-all duration-300",
                   isActive ? "text-primary drop-shadow-md scale-110" : "text-gray-500 group-hover:text-primary"
                 )} />
                 <span className={cn(
-                  "text-[8px] font-semibold uppercase tracking-wider leading-none transition-all duration-300",
+                  "text-[9px] font-semibold uppercase tracking-wider leading-none transition-all duration-300 text-center px-1",
                   isActive ? "text-primary/90 font-bold" : "text-gray-500 group-hover:text-primary/90"
                 )}>
                   {item.label}
