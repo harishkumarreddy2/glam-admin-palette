@@ -4,14 +4,14 @@ A beautiful, modern admin dashboard built with React, TypeScript, and Tailwind C
 
 ## 📸 Screenshots
 
-*To add screenshots: Take screenshots of your app and place them in a `screenshots` folder, then update the image paths below.*
+### Desktop Dashboard
+![Desktop Dashboard](./src/assets/desktop-dashboard.png)
 
-<!-- 
-Example usage once you add screenshots:
-![Desktop Dashboard](./screenshots/desktop-dashboard.png)
-![Mobile View](./screenshots/mobile-view.png)
-![Help System](./screenshots/help-system.png)
--->
+### Mobile View
+![Mobile View](./src/assets/mobile-view.png)
+
+### Help System Demo
+![Help System](./src/assets/help-system.png)
 
 ## 🌟 Features
 
