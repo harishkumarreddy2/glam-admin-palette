@@ -104,7 +104,7 @@ export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect, isHelpMod
               key={item.id}
               onClick={() => handleItemClick(item.id)}
               className={cn(
-                "group relative flex w-full flex-col items-center justify-center rounded-lg px-3 py-5 transition-all duration-300 hover:scale-105",
+                "group relative flex w-full flex-col items-center justify-center rounded-lg px-3 py-3 transition-all duration-300 hover:scale-105",
                 isActive
                   ? "bg-gradient-to-br from-primary/30 via-primary/20 to-accent/30 text-primary shadow-xl border border-primary/40 shadow-primary/20 scale-105"
                   : "text-gray-600 hover:bg-gradient-to-br hover:from-white/60 hover:to-white/40 hover:text-primary hover:shadow-sm"
@@ -150,7 +150,7 @@ export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect, isHelpMod
               key={item.id}
               onClick={() => handleItemClick(item.id)}
               className={cn(
-                "group relative flex w-full flex-col items-center justify-center rounded-lg px-3 py-5 transition-all duration-300 hover:scale-105",
+                "group relative flex w-full flex-col items-center justify-center rounded-lg px-3 py-3 transition-all duration-300 hover:scale-105",
                 isActive
                   ? "bg-gradient-to-br from-primary/30 via-primary/20 to-accent/30 text-primary shadow-xl border border-primary/40 shadow-primary/20 scale-105"
                   : "text-gray-600 hover:bg-gradient-to-br hover:from-white/60 hover:to-white/40 hover:text-primary hover:shadow-sm"
