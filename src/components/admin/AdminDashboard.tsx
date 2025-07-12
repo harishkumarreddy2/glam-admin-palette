@@ -61,19 +61,24 @@ export const AdminDashboard = () => {
   const [activeSection, setActiveSection] = useState("dashboard");
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
-      {/* Top Bar - Full Width Header */}
-      <AdminHeader />
+    <div className="h-screen bg-background flex flex-col overflow-hidden">
+      {/* Fixed Top Bar */}
+      <div className="fixed top-0 left-0 right-0 z-50">
+        <AdminHeader />
+      </div>
       
-      {/* Body Section - Sidebar + Work Area */}
-      <div className="flex flex-1">
-        <AdminSidebar 
-          activeItem={activeSection} 
-          onItemSelect={setActiveSection} 
-        />
+      {/* Body Section - Fixed Sidebar + Scrollable Work Area */}
+      <div className="flex flex-1 pt-16">
+        {/* Fixed Left Sidebar */}
+        <div className="fixed left-0 top-16 bottom-0 z-40">
+          <AdminSidebar 
+            activeItem={activeSection} 
+            onItemSelect={setActiveSection} 
+          />
+        </div>
         
-        {/* Right Work Area */}
-        <main className="flex-1 p-6 space-y-6">
+        {/* Scrollable Right Work Area */}
+        <main className="flex-1 ml-16 overflow-y-auto p-6 space-y-6 h-full">
           {/* Welcome Section */}
           <div className="animate-fade-in-up">
             <h1 className="text-3xl font-bold text-foreground mb-2">
