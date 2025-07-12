@@ -78,7 +78,7 @@ export const AdminDashboard = () => {
         </div>
         
         {/* Scrollable Right Work Area */}
-        <div className="flex-1 ml-16 h-screen overflow-y-auto">
+        <div className="flex-1 ml-16 h-screen overflow-y-auto custom-scrollbar">
           <main className="p-6 space-y-6 min-h-full">
           {/* Welcome Section */}
           <div className="animate-fade-in-up">
