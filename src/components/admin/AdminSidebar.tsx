@@ -57,11 +57,16 @@ export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect }: AdminSi
               className={cn(
                 "group relative flex w-full flex-col items-center justify-center rounded-lg px-1 py-2.5 transition-all duration-200 hover:scale-105",
                 isActive
-                  ? "bg-gradient-to-br from-primary/20 to-accent/20 text-primary shadow-sm"
+                  ? "bg-gradient-to-br from-primary/20 to-accent/20 text-primary shadow-lg border border-primary/30"
                   : "text-gray-600 hover:bg-gradient-to-br hover:from-white/60 hover:to-white/40 hover:text-primary hover:shadow-sm"
               )}
             >
-              <div className="flex flex-col items-center justify-center space-y-1">
+              {/* Selection highlight background */}
+              {isActive && (
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg" />
+              )}
+              
+              <div className="relative flex flex-col items-center justify-center space-y-1 z-10">
                 <Icon className={cn(
                   "h-5 w-5 transition-all duration-200",
                   isActive ? "text-primary drop-shadow-sm" : "text-gray-500 group-hover:text-primary"
