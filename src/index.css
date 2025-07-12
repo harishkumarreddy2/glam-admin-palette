@@ -113,6 +113,16 @@
     scrollbar-color: hsl(var(--primary)) hsl(var(--muted));
   }
 
+  /* Animation delay utility */
+  .animation-delay-75 {
+    animation-delay: 75ms;
+  }
+
+  /* Custom cursor for help elements */
+  .cursor-help {
+    cursor: help;
+  }
+
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
