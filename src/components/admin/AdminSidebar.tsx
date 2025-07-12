@@ -67,7 +67,7 @@ export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect }: AdminSi
                   isActive ? "text-primary drop-shadow-sm" : "text-gray-500 group-hover:text-primary"
                 )} />
                 <span className={cn(
-                  "text-[9px] font-semibold uppercase tracking-wider leading-none",
+                  "text-[8px] font-semibold uppercase tracking-wider leading-none",
                   isActive ? "text-primary/90" : "text-gray-500 group-hover:text-primary/90"
                 )}>
                   {item.label}
