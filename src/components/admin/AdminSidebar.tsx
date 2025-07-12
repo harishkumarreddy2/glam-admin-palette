@@ -44,8 +44,7 @@ export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect }: AdminSi
         <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600"></div>
       </div>
 
-      {/* Navigation */}
-      <nav className="p-4 space-y-2">
+      <nav className="p-[0.2rem] space-y-2">
         {sidebarItems.map((item) => {
           const Icon = item.icon;
           const isActive = activeItem === item.id;
