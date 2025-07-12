@@ -5,13 +5,13 @@ A beautiful, modern admin dashboard built with React, TypeScript, and Tailwind C
 ## 📸 Screenshots
 
 ### Desktop Dashboard
-![Desktop Dashboard](./src/assets/desktop-dashboard.png)
+![Desktop Dashboard](https://github.com/user-attachments/assets/eb1548f8-0541-4db7-82b9-2ad6065e06c3)
+
+### Tablet View
+![Tablet View](https://github.com/user-attachments/assets/8b4a40f5-4694-4ec8-bfba-bc72bdd8c652)
 
 ### Mobile View
-![Mobile View](./src/assets/mobile-view.png)
-
-### Help System Demo
-![Help System](./src/assets/help-system.png)
+![Mobile View](https://github.com/user-attachments/assets/d3e42508-1a6e-45b1-afda-01e63c169c61)
 
 ## 🌟 Features
 
