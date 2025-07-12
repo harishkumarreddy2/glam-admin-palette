@@ -25,6 +25,9 @@ export const AdminHeader = ({ isHelpMode = false, onHelpToggle }: AdminHeaderPro
             placeholder="Search..."
             className="w-full rounded-lg border border-white/20 bg-white/50 py-2 pl-10 pr-4 text-sm backdrop-blur-sm transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
           />
+          {isHelpMode && (
+            <div className="absolute -top-2 -right-2 h-4 w-4 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 border-2 border-white shadow-lg animate-pulse z-50" />
+          )}
         </div>
       </div>
 
@@ -39,10 +42,15 @@ export const AdminHeader = ({ isHelpMode = false, onHelpToggle }: AdminHeaderPro
           <HelpCircle className="h-5 w-5" />
         </Toggle>
         
-        <button className="relative rounded-lg p-2 text-gray-600 transition-colors hover:bg-white/50 hover:text-primary">
-          <Bell className="h-5 w-5" />
-          <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-gradient-to-r from-red-500 to-red-600"></span>
-        </button>
+        <div className="relative">
+          <button className="rounded-lg p-2 text-gray-600 transition-colors hover:bg-white/50 hover:text-primary">
+            <Bell className="h-5 w-5" />
+            <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-gradient-to-r from-red-500 to-red-600"></span>
+          </button>
+          {isHelpMode && (
+            <div className="absolute -top-2 -right-2 h-4 w-4 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 border-2 border-white shadow-lg animate-pulse z-50" />
+          )}
+        </div>
       </div>
     </header>
   );

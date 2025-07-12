@@ -61,8 +61,10 @@ export const AdminDashboard = () => {
   const [activeSection, setActiveSection] = useState("dashboard");
   const [isHelpMode, setIsHelpMode] = useState(false);
 
+  console.log("Help mode state:", isHelpMode);
+
   const HelpDot = () => (
-    <div className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 border-2 border-white shadow-lg animate-pulse z-10" />
+    <div className="absolute -top-2 -right-2 h-4 w-4 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 border-2 border-white shadow-lg animate-pulse z-50" />
   );
 
   return (
@@ -75,11 +77,14 @@ export const AdminDashboard = () => {
       {/* Body Section - Fixed Sidebar + Scrollable Work Area */}
       <div className="flex flex-1 pt-16">
         {/* Fixed Left Sidebar */}
-        <div className="fixed left-0 top-16 bottom-0 z-40">
+        <div className="fixed left-0 top-16 bottom-0 z-40 relative">
           <AdminSidebar 
             activeItem={activeSection} 
             onItemSelect={setActiveSection} 
           />
+          {isHelpMode && (
+            <div className="absolute top-4 right-2 h-4 w-4 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 border-2 border-white shadow-lg animate-pulse z-50" />
+          )}
         </div>
         
         {/* Scrollable Right Work Area */}
