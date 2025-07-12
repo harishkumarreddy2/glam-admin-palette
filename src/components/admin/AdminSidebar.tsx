@@ -126,7 +126,7 @@ export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect, isHelpMod
                   isActive ? "text-primary drop-shadow-md scale-110" : "text-gray-500 group-hover:text-primary"
                 )} />
                 <span className={cn(
-                  "text-[9px] font-semibold uppercase tracking-wider leading-none transition-all duration-300 text-center px-1",
+                  "text-[7px] font-semibold uppercase tracking-wider leading-none transition-all duration-300 text-center px-1",
                   isActive ? "text-primary/90 font-bold" : "text-gray-500 group-hover:text-primary/90"
                 )}>
                   {item.label}
@@ -172,7 +172,7 @@ export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect, isHelpMod
                   isActive ? "text-primary drop-shadow-md scale-110" : "text-gray-500 group-hover:text-primary"
                 )} />
                 <span className={cn(
-                  "text-[9px] font-semibold uppercase tracking-wider leading-none transition-all duration-300 text-center px-1",
+                  "text-[7px] font-semibold uppercase tracking-wider leading-none transition-all duration-300 text-center px-1",
                   isActive ? "text-primary/90 font-bold" : "text-gray-500 group-hover:text-primary/90"
                 )}>
                   {item.label}
