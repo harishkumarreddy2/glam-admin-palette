@@ -17,7 +17,7 @@ export const AdminHeader = ({ isHelpMode = false, onHelpToggle }: AdminHeaderPro
   const HelpDot = ({ explanation }: { explanation: string }) => (
     <Tooltip>
       <TooltipTrigger asChild>
-        <div className="absolute -top-1 -right-1 z-50 cursor-help group">
+        <div className="absolute -top-1 -right-1 z-[9999] cursor-help group">
           {/* Ripple effect container */}
           <div className="relative">
             {/* Ripple rings */}
