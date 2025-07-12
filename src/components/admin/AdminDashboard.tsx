@@ -78,7 +78,8 @@ export const AdminDashboard = () => {
         </div>
         
         {/* Scrollable Right Work Area */}
-        <main className="flex-1 ml-16 overflow-y-auto p-6 space-y-6 h-full">
+        <div className="flex-1 ml-16 h-screen overflow-y-auto">
+          <main className="p-6 space-y-6 min-h-full">
           {/* Welcome Section */}
           <div className="animate-fade-in-up">
             <h1 className="text-3xl font-bold text-foreground mb-2">
@@ -181,7 +182,8 @@ export const AdminDashboard = () => {
               </GradientButton>
             </div>
           </GlossyCard>
-        </main>
+          </main>
+        </div>
       </div>
     </div>
   );
