@@ -41,7 +41,7 @@ export const AdminHeader = ({ isHelpMode = false, onHelpToggle }: AdminHeaderPro
   
   return (
     <TooltipProvider>
-    <header className="glass-nav flex h-16 items-center justify-between px-6 border-b border-white/10">
+    <header className="glass-nav flex h-16 items-center justify-between px-6 border-b border-white/10 backdrop-blur-lg bg-white/80">
       {/* Logo Section */}
       <div className="flex items-center space-x-4 relative">
         <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600"></div>
