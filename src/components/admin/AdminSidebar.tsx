@@ -104,7 +104,7 @@ export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect, isHelpMod
               key={item.id}
               onClick={() => handleItemClick(item.id)}
               className={cn(
-                "group relative flex w-full flex-col items-center justify-center rounded-lg px-3 py-3 transition-all duration-300 hover:scale-105",
+                "group relative flex w-full flex-col items-center justify-center rounded-lg px-3 py-3 transition-all duration-500 ease-out transform-gpu will-change-transform origin-center hover:scale-105",
                 isActive
                   ? "bg-gradient-to-br from-primary/30 via-primary/20 to-accent/30 text-primary shadow-xl border border-primary/40 shadow-primary/20 scale-105"
                   : "text-gray-600 hover:bg-gradient-to-br hover:from-primary/20 hover:via-primary/10 hover:to-accent/20 hover:text-primary hover:shadow-lg hover:border hover:border-primary/20 hover:shadow-primary/10"
@@ -122,11 +122,11 @@ export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect, isHelpMod
               
               <div className="relative flex flex-col items-center justify-center space-y-2 z-10 w-full h-full">
                 <Icon className={cn(
-                  "h-6 w-6 transition-all duration-300",
+                  "h-6 w-6 transition-all duration-500 ease-out transform-gpu will-change-transform origin-center",
                   isActive ? "text-primary drop-shadow-md scale-110" : "text-gray-500 group-hover:text-primary group-hover:scale-105 group-hover:drop-shadow-sm"
                 )} />
                 <span className={cn(
-                  "text-[7px] font-semibold uppercase tracking-wider leading-none transition-all duration-300 text-center px-1",
+                  "text-[7px] font-semibold uppercase tracking-wider leading-none transition-all duration-500 ease-out text-center px-1",
                   isActive ? "text-primary/90 font-bold" : "text-gray-500 group-hover:text-primary/90 group-hover:font-semibold"
                 )}>
                   {item.label}
@@ -150,7 +150,7 @@ export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect, isHelpMod
               key={item.id}
               onClick={() => handleItemClick(item.id)}
               className={cn(
-                "group relative flex w-full flex-col items-center justify-center rounded-lg px-3 py-3 transition-all duration-300 hover:scale-105",
+                "group relative flex w-full flex-col items-center justify-center rounded-lg px-3 py-3 transition-all duration-500 ease-out transform-gpu will-change-transform origin-center hover:scale-105",
                 isActive
                   ? "bg-gradient-to-br from-primary/30 via-primary/20 to-accent/30 text-primary shadow-xl border border-primary/40 shadow-primary/20 scale-105"
                   : "text-gray-600 hover:bg-gradient-to-br hover:from-primary/20 hover:via-primary/10 hover:to-accent/20 hover:text-primary hover:shadow-lg hover:border hover:border-primary/20 hover:shadow-primary/10"
@@ -168,11 +168,11 @@ export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect, isHelpMod
               
               <div className="relative flex flex-col items-center justify-center space-y-2 z-10 w-full h-full">
                 <Icon className={cn(
-                  "h-6 w-6 transition-all duration-300",
+                  "h-6 w-6 transition-all duration-500 ease-out transform-gpu will-change-transform origin-center",
                   isActive ? "text-primary drop-shadow-md scale-110" : "text-gray-500 group-hover:text-primary group-hover:scale-105 group-hover:drop-shadow-sm"
                 )} />
                 <span className={cn(
-                  "text-[7px] font-semibold uppercase tracking-wider leading-none transition-all duration-300 text-center px-1",
+                  "text-[7px] font-semibold uppercase tracking-wider leading-none transition-all duration-500 ease-out text-center px-1",
                   isActive ? "text-primary/90 font-bold" : "text-gray-500 group-hover:text-primary/90 group-hover:font-semibold"
                 )}>
                   {item.label}
