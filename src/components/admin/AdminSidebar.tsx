@@ -67,7 +67,7 @@ export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect, isHelpMod
           </div>
         </div>
       </TooltipTrigger>
-      <TooltipContent side="right" className="max-w-xs bg-white border border-gray-200 shadow-lg">
+      <TooltipContent side="right" className="max-w-xs bg-white border border-gray-200 shadow-lg z-[9999]">
         <div className="p-2">
           <p className="text-sm text-gray-800">{explanation}</p>
         </div>
