@@ -33,28 +33,21 @@ interface AdminSidebarProps {
 }
 
 export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect }: AdminSidebarProps) => {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
 
   const handleItemClick = (itemId: string) => {
     onItemSelect?.(itemId);
   };
 
   return (
-    <div className={cn(
-      "relative h-screen glass-nav transition-all duration-300 ease-in-out",
-      isCollapsed ? "w-16" : "w-64"
-    )}>
-      {/* Toggle Button */}
-      <button
-        onClick={() => setIsCollapsed(!isCollapsed)}
-        className="absolute -right-3 top-8 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-white shadow-md transition-colors hover:bg-gray-50"
-      >
-        {isCollapsed ? (
-          <Menu className="h-3 w-3 text-primary" />
-        ) : (
-          <ChevronLeft className="h-3 w-3 text-primary" />
-        )}
-      </button>
+    <div 
+      className={cn(
+        "relative h-screen glass-nav transition-all duration-300 ease-in-out group",
+        isCollapsed ? "w-16" : "w-64"
+      )}
+      onMouseEnter={() => setIsCollapsed(false)}
+      onMouseLeave={() => setIsCollapsed(true)}
+    >
 
       {/* Logo */}
       <div className="flex h-16 items-center justify-center border-b border-white/10 px-4">
