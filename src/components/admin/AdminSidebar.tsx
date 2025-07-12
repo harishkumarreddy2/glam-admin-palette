@@ -189,12 +189,18 @@ export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect, isHelpMod
       </div>
 
       {/* Mobile/Tablet Bottom Bar */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 h-20 backdrop-blur-xl bg-white/90 border-t border-white/20 shadow-lg">
-        <TooltipProvider>
-        {/* Subtle background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/3 to-accent/3 pointer-events-none"></div>
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 h-20 backdrop-blur-xl bg-gradient-to-t from-white/95 via-white/90 to-white/95 border-t border-white/30 shadow-2xl shadow-primary/10 relative overflow-hidden">
+        {/* Background patterns */}
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/5 via-transparent to-accent/5"></div>
+        <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-white/20 to-transparent"></div>
         
-        <div className="flex items-center justify-center h-full">
+        {/* Decorative floating elements */}
+        <div className="absolute -bottom-16 -right-16 w-32 h-32 bg-gradient-to-tl from-primary/8 to-transparent rounded-full blur-xl"></div>
+        <div className="absolute -bottom-12 -left-12 w-24 h-24 bg-gradient-to-tr from-accent/8 to-transparent rounded-full blur-lg"></div>
+        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-transparent via-primary/20 to-transparent rounded-full"></div>
+        
+        <TooltipProvider>
+        <div className="flex items-center justify-center h-full relative z-10">
         <nav className="flex items-center justify-around w-full max-w-md px-4">
           {/* Show only main nav items on mobile for space */}
           {mainNavItems.slice(0, 5).map((item) => {
