@@ -94,11 +94,9 @@ export const AdminDashboard = () => {
         <div className="fixed left-0 top-16 bottom-0 z-40 relative">
           <AdminSidebar 
             activeItem={activeSection} 
-            onItemSelect={setActiveSection} 
+            onItemSelect={setActiveSection}
+            isHelpMode={isHelpMode}
           />
-          {isHelpMode && (
-            <HelpDot explanation="Navigation sidebar - Access different sections of the admin panel including dashboard, users, analytics, and settings." />
-          )}
         </div>
         
         {/* Scrollable Right Work Area */}
@@ -120,11 +118,11 @@ export const AdminDashboard = () => {
             {statsData.map((stat, index) => (
               <div 
                 key={stat.title}
-                className="relative"
+                className="relative cursor-pointer"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <StatsCard {...stat} />
-                {isHelpMode && <HelpDot explanation={`${stat.title} statistics - View current ${stat.title.toLowerCase()} metrics, trends, and performance indicators.`} />}
+                {isHelpMode && <HelpDot explanation={`${stat.title} statistics - Click to view detailed ${stat.title.toLowerCase()} analytics, drill down into specific metrics, and access related reports.`} />}
               </div>
             ))}
           </div>

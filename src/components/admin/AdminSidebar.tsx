@@ -9,6 +9,12 @@ import {
   HelpCircle
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 interface SidebarItem {
   id: string;
@@ -34,16 +40,43 @@ const bottomNavItems: SidebarItem[] = [
 interface AdminSidebarProps {
   activeItem?: string;
   onItemSelect?: (itemId: string) => void;
+  isHelpMode?: boolean;
 }
 
-export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect }: AdminSidebarProps) => {
+export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect, isHelpMode = false }: AdminSidebarProps) => {
   const isCollapsed = true; // Fixed collapsed state
 
   const handleItemClick = (itemId: string) => {
     onItemSelect?.(itemId);
   };
 
+  const HelpDot = ({ explanation }: { explanation: string }) => (
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <div className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 border border-white shadow-lg animate-pulse z-50 cursor-help" />
+      </TooltipTrigger>
+      <TooltipContent side="right" className="max-w-xs">
+        <p>{explanation}</p>
+      </TooltipContent>
+    </Tooltip>
+  );
+
+  const getItemExplanation = (item: any) => {
+    const explanations: Record<string, string> = {
+      dashboard: "Dashboard - Overview of all admin metrics, activities, and key performance indicators in one central view.",
+      users: "Users - Manage user accounts, permissions, roles, and view user activity across the platform.",
+      analytics: "Analytics - Detailed reports, charts, and insights about platform usage, performance metrics, and trends.",
+      reports: "Reports - Generate, view, and export comprehensive reports on various aspects of the platform.",
+      messages: "Messages - Send notifications, announcements, and communicate with users across the platform.",
+      profile: "Profile - Manage your admin account settings, personal information, and preferences.",
+      help: "Help - Access documentation, tutorials, support resources, and contact information.",
+      settings: "Settings - Configure platform settings, integrations, security options, and system preferences."
+    };
+    return explanations[item.id] || `${item.label} - Navigate to the ${item.label.toLowerCase()} section.`;
+  };
+
   return (
+    <TooltipProvider>
     <div className="w-16 h-screen glass-nav flex flex-col">
 
       {/* Main Navigation */}
@@ -80,6 +113,8 @@ export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect }: AdminSi
                   {item.label}
                 </span>
               </div>
+              
+              {isHelpMode && <HelpDot explanation={getItemExplanation(item)} />}
             </button>
           );
         })}
@@ -119,10 +154,13 @@ export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect }: AdminSi
                   {item.label}
                 </span>
               </div>
+              
+              {isHelpMode && <HelpDot explanation={getItemExplanation(item)} />}
             </button>
           );
         })}
       </div>
     </div>
+    </TooltipProvider>
   );
 };
