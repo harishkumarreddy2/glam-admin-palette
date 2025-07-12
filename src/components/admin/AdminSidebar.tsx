@@ -94,7 +94,7 @@ export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect, isHelpMod
     <div className="w-16 h-screen glass-nav flex flex-col">
 
       {/* Main Navigation */}
-      <nav className="flex-1 p-1 space-y-1 pt-4">
+      <nav className="flex-1 p-1 space-y-2 pt-4">
         {mainNavItems.map((item) => {
           const Icon = item.icon;
           const isActive = activeItem === item.id;
@@ -140,7 +140,7 @@ export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect, isHelpMod
       </nav>
 
       {/* Bottom Navigation - User & Help */}
-      <div className="border-t border-white/10 p-1 space-y-1">
+      <div className="border-t border-white/10 p-1 space-y-2">
         {bottomNavItems.map((item) => {
           const Icon = item.icon;
           const isActive = activeItem === item.id;
