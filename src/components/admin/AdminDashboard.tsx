@@ -181,9 +181,12 @@ export const AdminDashboard = () => {
                 
                 <div className="space-y-4">
                   {recentActivities.map((activity) => (
-                    <div key={activity.id} className="flex items-start space-x-3 p-3 rounded-lg hover:bg-white/50 transition-colors relative group cursor-pointer">
-                      <div className="h-8 w-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center flex-shrink-0">
-                        <span className="text-xs font-bold text-white">
+                    <div key={activity.id} className="flex items-start space-x-3 p-4 rounded-lg bg-gradient-to-r from-white/60 via-gray-50/40 to-white/80 hover:from-white/80 hover:via-gray-50/60 hover:to-white/90 border border-white/40 shadow-sm hover:shadow-md transition-all duration-200 relative group cursor-pointer backdrop-blur-sm">
+                      {/* Decorative accent */}
+                      <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-primary/60 to-accent/60 rounded-l-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+                      
+                      <div className="h-10 w-10 rounded-full bg-gradient-to-br from-primary/80 via-primary to-accent/80 flex items-center justify-center flex-shrink-0 shadow-lg">
+                        <span className="text-sm font-bold text-white">
                           {activity.user.charAt(0)}
                         </span>
                       </div>
