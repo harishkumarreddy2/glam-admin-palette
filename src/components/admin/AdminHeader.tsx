@@ -29,9 +29,12 @@ export const AdminHeader = ({ isHelpMode = false, onHelpToggle }: AdminHeaderPro
     <TooltipProvider>
     <header className="glass-nav flex h-16 items-center justify-between px-6 border-b border-white/10">
       {/* Logo Section */}
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center space-x-4 relative">
         <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600"></div>
         <h1 className="gradient-text text-xl font-bold">AdminPro</h1>
+        {isHelpMode && (
+          <HelpDot explanation="AdminPro logo and branding - Click to return to main dashboard or access company information." />
+        )}
       </div>
 
       {/* Search Section */}

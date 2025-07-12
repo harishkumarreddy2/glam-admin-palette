@@ -105,13 +105,14 @@ export const AdminDashboard = () => {
         <div className="flex-1 ml-16 h-screen overflow-y-auto custom-scrollbar">
           <main className="p-6 space-y-6 min-h-full">
           {/* Welcome Section */}
-          <div className="animate-fade-in-up">
+          <div className="animate-fade-in-up relative">
             <h1 className="text-3xl font-bold text-foreground mb-2">
               Welcome back, <span className="gradient-text">John!</span>
             </h1>
             <p className="text-muted-foreground">
               Here's what's happening with your admin panel today.
             </p>
+            {isHelpMode && <HelpDot explanation="Welcome banner - Personalized greeting showing current user and overview of today's admin panel activity and status." />}
           </div>
 
           {/* Stats Grid */}
@@ -143,12 +144,13 @@ export const AdminDashboard = () => {
                   </div>
                 </div>
                 
-                <div className="h-64 flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg">
+                <div className="h-64 flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg relative cursor-pointer hover:from-blue-100 hover:to-purple-100 transition-colors">
                   <div className="text-center space-y-2">
                     <Activity className="h-16 w-16 text-primary mx-auto" />
                     <p className="text-lg font-medium text-foreground">Chart Visualization</p>
                     <p className="text-sm text-muted-foreground">Interactive charts would go here</p>
                   </div>
+                  {isHelpMode && <HelpDot explanation="Analytics chart area - Interactive data visualizations showing trends, performance metrics, and business intelligence insights." />}
                 </div>
               </GlossyCard>
             </div>
@@ -158,12 +160,15 @@ export const AdminDashboard = () => {
               <GlossyCard>
                 <div className="flex items-center justify-between mb-6">
                   <h3 className="text-lg font-semibold text-foreground">Recent Activity</h3>
-                  <Calendar className="h-5 w-5 text-muted-foreground" />
+                  <div className="relative">
+                    <Calendar className="h-5 w-5 text-muted-foreground" />
+                    {isHelpMode && <HelpDot explanation="Activity timeline - View chronological list of recent user actions and system events." />}
+                  </div>
                 </div>
                 
                 <div className="space-y-4">
                   {recentActivities.map((activity) => (
-                    <div key={activity.id} className="flex items-start space-x-3 p-3 rounded-lg hover:bg-white/50 transition-colors">
+                    <div key={activity.id} className="flex items-start space-x-3 p-3 rounded-lg hover:bg-white/50 transition-colors relative group cursor-pointer">
                       <div className="h-8 w-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center flex-shrink-0">
                         <span className="text-xs font-bold text-white">
                           {activity.user.charAt(0)}
@@ -180,6 +185,7 @@ export const AdminDashboard = () => {
                           {activity.time}
                         </p>
                       </div>
+                      {isHelpMode && <HelpDot explanation={`Activity entry - Click to view detailed information about ${activity.user}'s recent action: ${activity.action}`} />}
                     </div>
                   ))}
                 </div>
@@ -191,7 +197,10 @@ export const AdminDashboard = () => {
           <GlossyCard>
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-lg font-semibold text-foreground">Quick Actions</h3>
-              <Star className="h-5 w-5 text-yellow-500" />
+              <div className="relative">
+                <Star className="h-5 w-5 text-yellow-500" />
+                {isHelpMode && <HelpDot explanation="Favorite actions - Star icon indicates these are your most frequently used admin functions." />}
+              </div>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
