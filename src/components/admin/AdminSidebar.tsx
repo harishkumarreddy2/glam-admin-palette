@@ -91,100 +91,144 @@ export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect, isHelpMod
 
   return (
     <TooltipProvider>
-    <div className="w-16 h-screen glass-nav flex flex-col">
+      {/* Desktop Sidebar */}
+      <div className="hidden lg:flex w-16 h-screen glass-nav flex-col">
+        {/* Main Navigation */}
+        <nav className="flex-1 p-1 space-y-2 pt-4">
+          {mainNavItems.map((item) => {
+            const Icon = item.icon;
+            const isActive = activeItem === item.id;
 
-      {/* Main Navigation */}
-      <nav className="flex-1 p-1 space-y-2 pt-4">
-        {mainNavItems.map((item) => {
-          const Icon = item.icon;
-          const isActive = activeItem === item.id;
+            return (
+              <button
+                key={item.id}
+                onClick={() => handleItemClick(item.id)}
+                className={cn(
+                  "group relative flex w-full flex-col items-center justify-center rounded-lg px-3 py-3 transition-all duration-500 ease-out transform-gpu will-change-transform origin-center hover:scale-105",
+                  isActive
+                    ? "bg-gradient-to-br from-primary/30 via-primary/20 to-accent/30 text-primary shadow-xl border border-primary/40 shadow-primary/20 scale-105"
+                    : "text-gray-600 hover:bg-gradient-to-br hover:from-primary/20 hover:via-primary/10 hover:to-accent/20 hover:text-primary hover:shadow-lg hover:border hover:border-primary/20 hover:shadow-primary/10"
+                )}
+              >
+                {/* Enhanced selection highlight background */}
+                {isActive && (
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/10 to-accent/20 rounded-lg border border-primary/30 shadow-inner" />
+                )}
+                
+                {/* Glow effect for active state */}
+                {isActive && (
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg blur-sm -z-10" />
+                )}
+                
+                <div className="relative flex flex-col items-center justify-center space-y-2 z-10 w-full h-full">
+                  <Icon className={cn(
+                    "h-6 w-6 transition-all duration-500 ease-out transform-gpu will-change-transform origin-center",
+                    isActive ? "text-primary drop-shadow-md scale-110" : "text-gray-500 group-hover:text-primary group-hover:scale-105 group-hover:drop-shadow-sm"
+                  )} />
+                  <span className={cn(
+                    "text-[7px] font-semibold uppercase tracking-wider leading-none transition-all duration-500 ease-out text-center px-1",
+                    isActive ? "text-primary/90 font-bold" : "text-gray-500 group-hover:text-primary/90 group-hover:font-semibold"
+                  )}>
+                    {item.label}
+                  </span>
+                </div>
+                
+                {isHelpMode && <HelpDot explanation={getItemExplanation(item)} />}
+              </button>
+            );
+          })}
+        </nav>
 
-          return (
-            <button
-              key={item.id}
-              onClick={() => handleItemClick(item.id)}
-              className={cn(
-                "group relative flex w-full flex-col items-center justify-center rounded-lg px-3 py-3 transition-all duration-500 ease-out transform-gpu will-change-transform origin-center hover:scale-105",
-                isActive
-                  ? "bg-gradient-to-br from-primary/30 via-primary/20 to-accent/30 text-primary shadow-xl border border-primary/40 shadow-primary/20 scale-105"
-                  : "text-gray-600 hover:bg-gradient-to-br hover:from-primary/20 hover:via-primary/10 hover:to-accent/20 hover:text-primary hover:shadow-lg hover:border hover:border-primary/20 hover:shadow-primary/10"
-              )}
-            >
-              {/* Enhanced selection highlight background */}
-              {isActive && (
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/10 to-accent/20 rounded-lg border border-primary/30 shadow-inner" />
-              )}
-              
-              {/* Glow effect for active state */}
-              {isActive && (
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg blur-sm -z-10" />
-              )}
-              
-              <div className="relative flex flex-col items-center justify-center space-y-2 z-10 w-full h-full">
-                <Icon className={cn(
-                  "h-6 w-6 transition-all duration-500 ease-out transform-gpu will-change-transform origin-center",
-                  isActive ? "text-primary drop-shadow-md scale-110" : "text-gray-500 group-hover:text-primary group-hover:scale-105 group-hover:drop-shadow-sm"
-                )} />
-                <span className={cn(
-                  "text-[7px] font-semibold uppercase tracking-wider leading-none transition-all duration-500 ease-out text-center px-1",
-                  isActive ? "text-primary/90 font-bold" : "text-gray-500 group-hover:text-primary/90 group-hover:font-semibold"
-                )}>
-                  {item.label}
-                </span>
-              </div>
-              
-              {isHelpMode && <HelpDot explanation={getItemExplanation(item)} />}
-            </button>
-          );
-        })}
-      </nav>
+        {/* Bottom Navigation - User & Help */}
+        <div className="border-t border-white/10 p-1 space-y-2">
+          {bottomNavItems.map((item) => {
+            const Icon = item.icon;
+            const isActive = activeItem === item.id;
 
-      {/* Bottom Navigation - User & Help */}
-      <div className="border-t border-white/10 p-1 space-y-2">
-        {bottomNavItems.map((item) => {
-          const Icon = item.icon;
-          const isActive = activeItem === item.id;
-
-          return (
-            <button
-              key={item.id}
-              onClick={() => handleItemClick(item.id)}
-              className={cn(
-                "group relative flex w-full flex-col items-center justify-center rounded-lg px-3 py-3 transition-all duration-500 ease-out transform-gpu will-change-transform origin-center hover:scale-105",
-                isActive
-                  ? "bg-gradient-to-br from-primary/30 via-primary/20 to-accent/30 text-primary shadow-xl border border-primary/40 shadow-primary/20 scale-105"
-                  : "text-gray-600 hover:bg-gradient-to-br hover:from-primary/20 hover:via-primary/10 hover:to-accent/20 hover:text-primary hover:shadow-lg hover:border hover:border-primary/20 hover:shadow-primary/10"
-              )}
-            >
-              {/* Enhanced selection highlight background */}
-              {isActive && (
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/10 to-accent/20 rounded-lg border border-primary/30 shadow-inner" />
-              )}
-              
-              {/* Glow effect for active state */}
-              {isActive && (
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg blur-sm -z-10" />
-              )}
-              
-              <div className="relative flex flex-col items-center justify-center space-y-2 z-10 w-full h-full">
-                <Icon className={cn(
-                  "h-6 w-6 transition-all duration-500 ease-out transform-gpu will-change-transform origin-center",
-                  isActive ? "text-primary drop-shadow-md scale-110" : "text-gray-500 group-hover:text-primary group-hover:scale-105 group-hover:drop-shadow-sm"
-                )} />
-                <span className={cn(
-                  "text-[7px] font-semibold uppercase tracking-wider leading-none transition-all duration-500 ease-out text-center px-1",
-                  isActive ? "text-primary/90 font-bold" : "text-gray-500 group-hover:text-primary/90 group-hover:font-semibold"
-                )}>
-                  {item.label}
-                </span>
-              </div>
-              
-              {isHelpMode && <HelpDot explanation={getItemExplanation(item)} />}
-            </button>
-          );
-        })}
+            return (
+              <button
+                key={item.id}
+                onClick={() => handleItemClick(item.id)}
+                className={cn(
+                  "group relative flex w-full flex-col items-center justify-center rounded-lg px-3 py-3 transition-all duration-500 ease-out transform-gpu will-change-transform origin-center hover:scale-105",
+                  isActive
+                    ? "bg-gradient-to-br from-primary/30 via-primary/20 to-accent/30 text-primary shadow-xl border border-primary/40 shadow-primary/20 scale-105"
+                    : "text-gray-600 hover:bg-gradient-to-br hover:from-primary/20 hover:via-primary/10 hover:to-accent/20 hover:text-primary hover:shadow-lg hover:border hover:border-primary/20 hover:shadow-primary/10"
+                )}
+              >
+                {/* Enhanced selection highlight background */}
+                {isActive && (
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/10 to-accent/20 rounded-lg border border-primary/30 shadow-inner" />
+                )}
+                
+                {/* Glow effect for active state */}
+                {isActive && (
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg blur-sm -z-10" />
+                )}
+                
+                <div className="relative flex flex-col items-center justify-center space-y-2 z-10 w-full h-full">
+                  <Icon className={cn(
+                    "h-6 w-6 transition-all duration-500 ease-out transform-gpu will-change-transform origin-center",
+                    isActive ? "text-primary drop-shadow-md scale-110" : "text-gray-500 group-hover:text-primary group-hover:scale-105 group-hover:drop-shadow-sm"
+                  )} />
+                  <span className={cn(
+                    "text-[7px] font-semibold uppercase tracking-wider leading-none transition-all duration-500 ease-out text-center px-1",
+                    isActive ? "text-primary/90 font-bold" : "text-gray-500 group-hover:text-primary/90 group-hover:font-semibold"
+                  )}>
+                    {item.label}
+                  </span>
+                </div>
+                
+                {isHelpMode && <HelpDot explanation={getItemExplanation(item)} />}
+              </button>
+            );
+          })}
+        </div>
       </div>
-    </div>
+
+      {/* Mobile/Tablet Bottom Bar */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 flex h-20 items-center justify-center backdrop-blur-xl bg-white/90 border-t border-white/20 shadow-lg">
+        <nav className="flex items-center justify-around w-full max-w-md px-4">
+          {/* Show only main nav items on mobile for space */}
+          {mainNavItems.slice(0, 5).map((item) => {
+            const Icon = item.icon;
+            const isActive = activeItem === item.id;
+
+            return (
+              <button
+                key={item.id}
+                onClick={() => handleItemClick(item.id)}
+                className={cn(
+                  "group relative flex flex-col items-center justify-center rounded-lg px-3 py-2 transition-all duration-500 ease-out transform-gpu will-change-transform origin-center hover:scale-105",
+                  isActive
+                    ? "bg-gradient-to-br from-primary/30 via-primary/20 to-accent/30 text-primary shadow-lg border border-primary/40 shadow-primary/20 scale-105"
+                    : "text-gray-600 hover:bg-gradient-to-br hover:from-primary/20 hover:via-primary/10 hover:to-accent/20 hover:text-primary hover:shadow-md"
+                )}
+              >
+                {/* Enhanced selection highlight background */}
+                {isActive && (
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/10 to-accent/20 rounded-lg border border-primary/30 shadow-inner" />
+                )}
+                
+                <div className="relative flex flex-col items-center justify-center space-y-1 z-10">
+                  <Icon className={cn(
+                    "h-5 w-5 transition-all duration-500 ease-out transform-gpu will-change-transform origin-center",
+                    isActive ? "text-primary drop-shadow-md scale-110" : "text-gray-500 group-hover:text-primary group-hover:scale-105 group-hover:drop-shadow-sm"
+                  )} />
+                  <span className={cn(
+                    "text-[8px] font-semibold uppercase tracking-wider leading-none transition-all duration-500 ease-out text-center",
+                    isActive ? "text-primary/90 font-bold" : "text-gray-500 group-hover:text-primary/90 group-hover:font-semibold"
+                  )}>
+                    {item.label}
+                  </span>
+                </div>
+                
+                {isHelpMode && <HelpDot explanation={getItemExplanation(item)} />}
+              </button>
+            );
+          })}
+        </nav>
+      </div>
     </TooltipProvider>
   );
 };
