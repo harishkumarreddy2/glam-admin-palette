@@ -55,14 +55,14 @@ export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect }: AdminSi
               key={item.id}
               onClick={() => handleItemClick(item.id)}
               className={cn(
-                "group flex w-full items-center justify-center rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200",
+                "group flex w-full items-center justify-center rounded-lg px-2 py-3 text-sm font-medium transition-all duration-200",
                 isActive
                   ? "bg-primary/10 text-primary"
                   : "text-gray-600 hover:bg-white/50 hover:text-primary"
               )}
             >
               <Icon className={cn(
-                "h-6 w-6 transition-colors",
+                "h-8 w-8 transition-colors",
                 isActive ? "text-primary" : "text-gray-500 group-hover:text-primary"
               )} />
             </button>
