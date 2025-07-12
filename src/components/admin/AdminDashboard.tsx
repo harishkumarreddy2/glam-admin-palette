@@ -73,7 +73,7 @@ export const AdminDashboard = () => {
   const HelpDot = ({ explanation }: { explanation: string }) => (
     <Tooltip>
       <TooltipTrigger asChild>
-        <div className="absolute -top-2 -right-2 z-50 cursor-help group">
+        <div className="absolute -top-1 -right-1 z-50 cursor-help group">
           {/* Ripple effect container */}
           <div className="relative">
             {/* Ripple rings */}
@@ -81,8 +81,8 @@ export const AdminDashboard = () => {
             <div className="absolute inset-0 rounded-full bg-blue-500/20 animate-ping animation-delay-75 group-hover:animate-none"></div>
             
             {/* Main help icon circle */}
-            <div className="relative w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center shadow-lg group-hover:bg-blue-600 transition-all duration-200">
-              <HelpCircle className="w-4 h-4 text-white" />
+            <div className="relative w-3 h-3 bg-blue-500 rounded-full flex items-center justify-center shadow-lg group-hover:bg-blue-600 transition-all duration-200">
+              <HelpCircle className="w-2 h-2 text-white" />
             </div>
           </div>
         </div>

@@ -61,8 +61,8 @@ export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect, isHelpMod
             <div className="absolute inset-0 rounded-full bg-blue-500/20 animate-ping animation-delay-75 group-hover:animate-none"></div>
             
             {/* Main help icon circle */}
-            <div className="relative w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center shadow-lg group-hover:bg-blue-600 transition-all duration-200">
-              <HelpCircle className="w-3 h-3 text-white" />
+            <div className="relative w-2.5 h-2.5 bg-blue-500 rounded-full flex items-center justify-center shadow-lg group-hover:bg-blue-600 transition-all duration-200">
+              <HelpCircle className="w-1.5 h-1.5 text-white" />
             </div>
           </div>
         </div>
