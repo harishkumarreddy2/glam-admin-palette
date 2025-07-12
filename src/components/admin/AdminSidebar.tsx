@@ -46,13 +46,8 @@ export const AdminSidebar = ({ activeItem = "dashboard", onItemSelect }: AdminSi
   return (
     <div className="w-16 h-screen glass-nav flex flex-col">
 
-      {/* Logo */}
-      <div className="flex h-16 items-center justify-center border-b border-white/10 px-4">
-        <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600"></div>
-      </div>
-
       {/* Main Navigation */}
-      <nav className="flex-1 p-[0.2rem] space-y-2">
+      <nav className="flex-1 p-[0.2rem] space-y-2 pt-4">
         {mainNavItems.map((item) => {
           const Icon = item.icon;
           const isActive = activeItem === item.id;
